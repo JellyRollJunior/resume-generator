@@ -1,1 +1,1 @@
-# resume-generator
+# Resume Generator
