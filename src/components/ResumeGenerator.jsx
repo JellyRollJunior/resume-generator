@@ -1,7 +1,12 @@
+import { ResumeForm } from "./ResumeForm";
+import { ResumeOutput } from "./ResumeOutput";
 export { ResumeGenerator }
 
 const ResumeGenerator = () => {
   return (
-    <h1>Resume Generator</h1>
+    <div>
+      <ResumeForm />
+      <ResumeOutput />
+    </div>
   );
 }
