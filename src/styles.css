@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Resume Generator */
+section.generator {
+  padding: 32px 24px;
+  border: 2px solid black;
+}
+
+fieldset {
+  --input-margin: 8px;
+
+  margin: 16px 0;
+}
+
+legend {
+    margin-bottom: calc(var(--input-margin) * -1);
+}
+
+fieldset > .variable {
+  display: flex;
+  flex-direction: column;
+  margin: var(--input-margin) 0;
+}
+
+input {
+  flex: 1;
+}
+
+/* Generated Resume */
+div.resume {
+  padding: 32px 24px;
+  border: 2px solid black;
+}
+
+div.general-info,
+h1,
+h2 {
+  text-align: center;
+}
+
+div.general-info * {
+  text-align: inherit;
+}

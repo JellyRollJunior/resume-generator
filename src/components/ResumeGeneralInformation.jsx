@@ -32,7 +32,7 @@ const GeneralInformation = ({ resumeData, setResumeData }) => {
   return (
     <fieldset>
       <legend>General Information</legend>
-      <div>
+      <div className="variable">
         <label htmlFor="firstname">Firstname: </label>
         <input
           type="text"
@@ -42,7 +42,7 @@ const GeneralInformation = ({ resumeData, setResumeData }) => {
           onChange={handleFirstname}
         />
       </div>
-      <div>
+      <div className="variable">
         <label htmlFor="lastname">Lastname: </label>
         <input
           type="text"
@@ -52,7 +52,7 @@ const GeneralInformation = ({ resumeData, setResumeData }) => {
           onChange={handleLastname}
         />
       </div>
-      <div>
+      <div className="variable">
         <label htmlFor="phone">Phone Number: </label>
         <input
           type="tel"
@@ -62,7 +62,7 @@ const GeneralInformation = ({ resumeData, setResumeData }) => {
           onChange={handlePhone}
         />
       </div>
-      <div>
+      <div className="variable">
         <label htmlFor="email">Email: </label>
         <input
           type="email"
