@@ -4,11 +4,40 @@ export { ResumeForm };
 
 const ResumeForm = () => {
   const [generalInfo, setGeneralInfo] = useState({
-    firstName: 'Shisa',
-    lastName: 'Chiikawa',
+    firstname: 'Shisa',
+    lastname: 'Chiikawa',
     phone: '888-888-8888',
     email: 'supa_arubaito_shisa@chiikawa.co',
   });
+
+  const handleFirstname = (event) => [
+    setGeneralInfo({
+      ...generalInfo,
+      firstname: event.target.value,
+    }),
+  ];
+
+  const handleLastname = (event) => [
+    setGeneralInfo({
+      ...generalInfo,
+      lastname: event.target.value,
+    }),
+  ];
+
+  const handlePhone = (event) => [
+    setGeneralInfo({
+      ...generalInfo,
+      phone: event.target.value,
+    }),
+  ];
+
+  const handleEmail = (event) => [
+    setGeneralInfo({
+      ...generalInfo,
+      email: event.target.value,
+    }),
+  ];
+
   return (
     <section>
       <form action="">
@@ -16,21 +45,23 @@ const ResumeForm = () => {
         <fieldset>
           <legend>General Information</legend>
           <div>
-            <label htmlFor="firstName">Firstname: </label>
+            <label htmlFor="firstname">Firstname: </label>
             <input
               type="text"
-              name="firstName"
-              id="firstName"
-              value={generalInfo.firstName}
+              name="firstname"
+              id="firstname"
+              value={generalInfo.firstname}
+              onChange={handleFirstname}
             />
           </div>
           <div>
-            <label htmlFor="lastName">Lastname: </label>
+            <label htmlFor="lastname">Lastname: </label>
             <input
               type="text"
-              name="lastName"
-              id="lastName"
-              value={generalInfo.lastName}
+              name="lastname"
+              id="lastname"
+              value={generalInfo.lastname}
+              onChange={handleLastname}
             />
           </div>
           <div>
@@ -40,6 +71,7 @@ const ResumeForm = () => {
               name="phone"
               id="phone"
               value={generalInfo.phone}
+              onChange={handlePhone}
             />
           </div>
           <div>
@@ -49,6 +81,7 @@ const ResumeForm = () => {
               name="email"
               id="email"
               value={generalInfo.email}
+              onChange={handleEmail}
             />
           </div>
         </fieldset>
