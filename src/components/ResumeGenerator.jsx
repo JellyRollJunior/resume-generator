@@ -7,7 +7,7 @@ const ResumeGenerator = () => {
     firstname: 'Shisa',
     lastname: '',
     phone: '888-888-8888',
-    email: 'supa_arubaito_shisa@chiikawa.co',
+    email: 'supa_arubaito@chiikawa.co',
   });
 
   const handleSubmit = (event) => {
@@ -42,7 +42,9 @@ const ResumeGenerator = () => {
             <span className="name">Shisa</span>
           </h2>
           <h3>
-            <span className='phone'>888-888-8888</span> <span className="email">supa_arubaito_shisa@chiikawa.co</span>
+            Phone: <span className='phone'>888-888-8888</span>
+            <br />
+            Email: <span className="email">supa_arubaito@chiikawa.co</span>
           </h3>
         </div>
       </section>
