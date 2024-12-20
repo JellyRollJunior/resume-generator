@@ -24,6 +24,12 @@ const ResumeForm = () => {
             <input type="email" name="email" id="email" />
           </div>
         </fieldset>
+        <fieldset>
+            <legend>Education</legend>
+        </fieldset>
+        <fieldset>
+            <legend>Work Experience</legend>
+        </fieldset>
       </form>
     </section>
   );
