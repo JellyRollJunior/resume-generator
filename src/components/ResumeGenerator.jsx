@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { GeneralInformation } from './ResumeGeneralInformation';
+import { GeneralInformation } from './GeneralInformationForm';
+import { Education } from './EducationForm';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
@@ -27,9 +28,7 @@ const ResumeGenerator = () => {
         <form action="">
           <h1>Resume Generator</h1>
           <GeneralInformation resumeData={resumeData} setResumeData={setResumeData} />
-          <fieldset>
-            <legend>Education</legend>
-          </fieldset>
+          <Education resumeData={resumeData} setResumeData={setResumeData} />
           <fieldset>
             <legend>Work Experience</legend>
           </fieldset>
