@@ -14,7 +14,7 @@ const ResumeGenerator = () => {
   return (
     <div>
       <ResumeForm generalInfo={generalInfo} setGeneralInfo={setGeneralInfo} />
-      <ResumeOutput />
+      <ResumeOutput generalInfo={generalInfo} />
     </div>
   );
 }
