@@ -21,14 +21,22 @@ const ResumeGenerator = () => {
   };
 
   const populateResume = () => {
+    // General info section
     const name = document.querySelector('span.name');
     const phone = document.querySelector('span.phone');
     const email = document.querySelector('span.email');
-
     name.textContent = `${resumeData.firstname} ${resumeData.lastname}`;
     phone.textContent = resumeData.phone;
     email.textContent = resumeData.email;
-  }
+
+    // Education section
+    const program = document.querySelector('span.program');
+    const school = document.querySelector('span.school');
+    const date = document.querySelector('span.date');
+    program.textContent = resumeData.program;
+    school.textContent = resumeData.school;
+    date.textContent = `${resumeData.startDate} - ${resumeData.endDate}`;
+  };
 
   return (
     <div className="resume-generator">
@@ -69,8 +77,7 @@ const ResumeGenerator = () => {
             <span className="school">Supa Arubaito School</span>
           </h4>
           <h5>
-            <span className="startDate">Last week</span> -{' '}
-            <span className="endDate">Yesterday</span>
+            <span className="date">Last week - Yesterday</span>
           </h5>
         </div>
       </section>
