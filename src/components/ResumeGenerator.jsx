@@ -4,7 +4,7 @@ export { ResumeGenerator };
 const ResumeGenerator = () => {
   const [generalInfo, setGeneralInfo] = useState({
     firstname: 'Shisa',
-    lastname: 'Chiikawa',
+    lastname: '',
     phone: '888-888-8888',
     email: 'supa_arubaito_shisa@chiikawa.co',
   });
@@ -36,6 +36,17 @@ const ResumeGenerator = () => {
       email: event.target.value,
     }),
   ];
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const name = document.querySelector('span.name');
+    const phone = document.querySelector('span.phone');
+    const email = document.querySelector('span.email');
+    
+    name.textContent = `${generalInfo.firstname} ${generalInfo.lastname}`;
+    phone.textContent = generalInfo.phone;
+    email.textContent = generalInfo.email;
+  }
 
   return (
     <div>
@@ -91,16 +102,17 @@ const ResumeGenerator = () => {
           <fieldset>
             <legend>Work Experience</legend>
           </fieldset>
+          <button type='submit' onClick={handleSubmit}>Submit</button>
         </form>
       </section>
       <section>
         <h2>Generated Resume</h2>
         <div>
           <h3>
-            {generalInfo.firstname} {generalInfo.lastname}
+            <span className="name">Shisa</span>
           </h3>
           <h4>
-            {generalInfo.phone} | {generalInfo.email}
+            <span className='phone'>888-888-8888</span> | <span className="email">supa_arubaito_shisa@chiikawa.co</span>
           </h4>
         </div>
       </section>
