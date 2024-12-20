@@ -1,15 +1,6 @@
-import { useState } from 'react';
-
 export { ResumeForm };
 
-const ResumeForm = () => {
-  const [generalInfo, setGeneralInfo] = useState({
-    firstname: 'Shisa',
-    lastname: 'Chiikawa',
-    phone: '888-888-8888',
-    email: 'supa_arubaito_shisa@chiikawa.co',
-  });
-
+const ResumeForm = ({generalInfo, setGeneralInfo}) => {
   const handleFirstname = (event) => [
     setGeneralInfo({
       ...generalInfo,
