@@ -22,8 +22,8 @@ const ResumeGenerator = () => {
   }
 
   return (
-    <div>
-      <section className='generator'>
+    <div className='resume-generator'>
+      <section>
         <form action="">
           <h1>Resume Generator</h1>
           <GeneralInformation resumeData={resumeData} setResumeData={setResumeData} />
@@ -37,15 +37,13 @@ const ResumeGenerator = () => {
         </form>
       </section>
       <section>
-        <div className="resume">
-          <div className='general-info'>
-            <h2>
-              <span className="name">Shisa</span>
-            </h2>
-            <h3>
-              <span className='phone'>888-888-8888</span> <span className="email">supa_arubaito_shisa@chiikawa.co</span>
-            </h3>
-          </div>
+        <div className='general-info'>
+          <h2>
+            <span className="name">Shisa</span>
+          </h2>
+          <h3>
+            <span className='phone'>888-888-8888</span> <span className="email">supa_arubaito_shisa@chiikawa.co</span>
+          </h3>
         </div>
       </section>
     </div>

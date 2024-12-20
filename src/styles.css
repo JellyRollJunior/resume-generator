@@ -39,7 +39,8 @@ h6 {
 }
 
 /* Resume Generator */
-section.generator {
+.resume-generator > section {
+    margin: 12px;
   padding: 32px 24px;
   border: 2px solid black;
 }
@@ -48,15 +49,17 @@ fieldset {
   --input-margin: 8px;
 
   margin: 16px 0;
+  padding: 6px 12px;
 }
 
 legend {
-    margin-bottom: calc(var(--input-margin) * -1);
+  margin-bottom: calc(var(--input-margin) * -1);
 }
 
 fieldset > .variable {
   display: flex;
   flex-direction: column;
+
   margin: var(--input-margin) 0;
 }
 
@@ -65,11 +68,6 @@ input {
 }
 
 /* Generated Resume */
-div.resume {
-  padding: 32px 24px;
-  border: 2px solid black;
-}
-
 div.general-info,
 h1,
 h2 {
@@ -78,4 +76,26 @@ h2 {
 
 div.general-info * {
   text-align: inherit;
+}
+
+/* Tablet view */
+@media (min-width: 700px) {
+  fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 1000px) {
+    div.resume-generator {
+        display: flex;
+        justify-content: center;
+    }
+
+    div.resume-generator > section {
+        flex: 1;
+        max-width: 700px;
+    }
 }
