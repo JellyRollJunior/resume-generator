@@ -9,6 +9,10 @@ const ResumeGenerator = () => {
     lastname: '',
     phone: '888-888-8888',
     email: 'supa_arubaito@chiikawa.co',
+    school: 'Supa Arubaito School',
+    program: 'Super part - time worker',
+    startDate: 'Last week',
+    endDate: 'Yesterday'
   });
 
   const handleSubmit = (event) => {

@@ -1,33 +1,33 @@
-export { GeneralInformation }
+export { GeneralInformation };
 
 const GeneralInformation = ({ resumeData, setResumeData }) => {
-  const handleFirstname = (event) => [
+  const handleFirstname = (event) => {
     setResumeData({
       ...resumeData,
       firstname: event.target.value,
-    }),
-  ];
+    });
+  };
 
-  const handleLastname = (event) => [
+  const handleLastname = (event) => {
     setResumeData({
       ...resumeData,
       lastname: event.target.value,
-    }),
-  ];
+    });
+  };
 
-  const handlePhone = (event) => [
+  const handlePhone = (event) => {
     setResumeData({
       ...resumeData,
       phone: event.target.value,
-    }),
-  ];
+    });
+  };
 
-  const handleEmail = (event) => [
+  const handleEmail = (event) => {
     setResumeData({
       ...resumeData,
       email: event.target.value,
-    }),
-  ];
+    });
+  };
 
   return (
     <fieldset>
