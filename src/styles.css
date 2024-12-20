@@ -40,7 +40,7 @@ h6 {
 
 /* Resume Generator */
 .resume-generator > section {
-    margin: 12px;
+  margin: 12px;
   padding: 32px 24px;
   border: 2px solid black;
 }
@@ -68,14 +68,17 @@ input {
 }
 
 /* Generated Resume */
-div.general-info,
-h1,
-h2 {
+div.general-info {
   text-align: center;
 }
 
 div.general-info * {
   text-align: inherit;
+  font-size: 1rem;
+}
+
+.general-info .name {
+  font-size: 2rem;
 }
 
 /* Tablet view */
@@ -89,13 +92,13 @@ div.general-info * {
 
 /* Desktop view */
 @media (min-width: 1000px) {
-    div.resume-generator {
-        display: flex;
-        justify-content: center;
-    }
+  div.resume-generator {
+    display: flex;
+    justify-content: center;
+  }
 
-    div.resume-generator > section {
-        flex: 1;
-        max-width: 700px;
-    }
+  div.resume-generator > section {
+    flex: 1;
+    max-width: 700px;
+  }
 }

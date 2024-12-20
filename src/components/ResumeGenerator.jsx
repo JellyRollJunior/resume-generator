@@ -36,7 +36,7 @@ const ResumeGenerator = () => {
           <button type='submit' onClick={handleSubmit}>Submit</button>
         </form>
       </section>
-      <section>
+      <section className='resume'>
         <div className='general-info'>
           <h2>
             <span className="name">Shisa</span>
