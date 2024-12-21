@@ -37,6 +37,8 @@ const ResumeGenerator = () => {
     phone.textContent = resumeData.phone;
     email.textContent = resumeData.email;
 
+    // Work experience section
+
     // Education section
     const program = document.querySelector('span.program');
     const school = document.querySelector('span.school');
@@ -56,7 +58,10 @@ const ResumeGenerator = () => {
             setResumeData={setResumeData}
           />
           <Education resumeData={resumeData} setResumeData={setResumeData} />
-          <WorkExperience resumeData={resumeData} setResumeData={setResumeData} />
+          <WorkExperience
+            resumeData={resumeData}
+            setResumeData={setResumeData}
+          />
           <button type="submit" onClick={handleSubmit}>
             Submit
           </button>
@@ -72,6 +77,22 @@ const ResumeGenerator = () => {
             <br />
             Email: <span className="email">supa_arubaito@chiikawa.co</span>
           </h3>
+        </div>
+        <div className="work-experience">
+          <h2>Work Experience</h2>
+          <hr />
+          <h3>
+            <span className="position">Sous chef</span>
+          </h3>
+          <h4>
+            <span className="company">Rou Ramen</span>
+          </h4>
+          <h5>
+            <span className="date">Yesterday - present</span>
+          </h5>
+          <p>
+            <span className="responsibilities">Making ramen and taking orders from customers!</span>
+          </p>
         </div>
         <div className="education">
           <h2>Education</h2>
