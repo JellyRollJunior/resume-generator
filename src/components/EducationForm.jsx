@@ -10,17 +10,17 @@ const Education = ({ resumeData, setResumeData }) => {
   };
 
   const handleStartDate = (event) => {
-    setResumeData({...resumeData, startDate: event.target.value});
-  }
+    setResumeData({ ...resumeData, startDate: event.target.value });
+  };
 
   const handleEndDate = (event) => {
-    setResumeData({...resumeData, endDate: event.target.value})
-  }
+    setResumeData({ ...resumeData, endDate: event.target.value });
+  };
 
   return (
     <fieldset>
       <legend>Education</legend>
-      <div className="variable">
+      <div>
         <label>
           School:
           <input
@@ -31,7 +31,7 @@ const Education = ({ resumeData, setResumeData }) => {
           />
         </label>
       </div>
-      <div className="variable">
+      <div>
         <label>
           Title of Study:
           <input
@@ -42,16 +42,26 @@ const Education = ({ resumeData, setResumeData }) => {
           />
         </label>
       </div>
-      <div className="variable">
+      <div>
         <label>
           Start Date:
-          <input type="date" name="startDate" value={resumeData.startDate} onChange={handleStartDate} />
+          <input
+            type="date"
+            name="startDate"
+            value={resumeData.startDate}
+            onChange={handleStartDate}
+          />
         </label>
       </div>
-      <div className="variable">
+      <div>
         <label>
           End Date:
-          <input type="date" name="endDate" value={resumeData.endDate} onChange={handleEndDate} />
+          <input
+            type="date"
+            name="endDate"
+            value={resumeData.endDate}
+            onChange={handleEndDate}
+          />
         </label>
       </div>
     </fieldset>

@@ -32,45 +32,53 @@ const GeneralInformation = ({ resumeData, setResumeData }) => {
   return (
     <fieldset>
       <legend>General Information</legend>
-      <div className="variable">
-        <label htmlFor="firstname">Firstname: </label>
-        <input
-          type="text"
-          name="firstname"
-          id="firstname"
-          value={resumeData.firstname}
-          onChange={handleFirstname}
-        />
+      <div>
+        <label htmlFor="firstname">
+          Firstname:
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            value={resumeData.firstname}
+            onChange={handleFirstname}
+          />
+        </label>
       </div>
-      <div className="variable">
-        <label htmlFor="lastname">Lastname: </label>
-        <input
-          type="text"
-          name="lastname"
-          id="lastname"
-          value={resumeData.lastname}
-          onChange={handleLastname}
-        />
+      <div>
+        <label htmlFor="lastname">
+          Lastname:
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            value={resumeData.lastname}
+            onChange={handleLastname}
+          />
+        </label>
       </div>
-      <div className="variable">
-        <label htmlFor="phone">Phone Number: </label>
-        <input
-          type="tel"
-          name="phone"
-          id="phone"
-          value={resumeData.phone}
-          onChange={handlePhone}
-        />
+      <div>
+        <label htmlFor="phone">
+          Phone Number:
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            value={resumeData.phone}
+            onChange={handlePhone}
+          />
+        </label>
       </div>
-      <div className="variable">
-        <label htmlFor="email">Email: </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={resumeData.email}
-          onChange={handleEmail}
-        />
+      <div>
+        <label htmlFor="email">
+          Email:
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={resumeData.email}
+            onChange={handleEmail}
+          />
+        </label>
       </div>
     </fieldset>
   );
