@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GeneralInformation } from './GeneralInformationForm';
 import { Education } from './EducationForm';
+import { WorkExperience } from './WorkExperienceForm';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
@@ -9,10 +10,17 @@ const ResumeGenerator = () => {
     lastname: '',
     phone: '888-888-8888',
     email: 'supa_arubaito@chiikawa.co',
+
     school: 'Supa Arubaito School',
     program: 'Super part - time worker',
     startDate: 'Last week',
     endDate: 'Yesterday',
+
+    company: 'Rou ramen',
+    position: 'Sous chef',
+    workStartDate: 'Yesterday',
+    workEndDate: '',
+    responsibilities: 'Making ramen and taking orders from customers!',
   });
 
   const handleSubmit = (event) => {
@@ -48,9 +56,7 @@ const ResumeGenerator = () => {
             setResumeData={setResumeData}
           />
           <Education resumeData={resumeData} setResumeData={setResumeData} />
-          <fieldset>
-            <legend>Work Experience</legend>
-          </fieldset>
+          <WorkExperience resumeData={resumeData} setResumeData={setResumeData} />
           <button type="submit" onClick={handleSubmit}>
             Submit
           </button>
