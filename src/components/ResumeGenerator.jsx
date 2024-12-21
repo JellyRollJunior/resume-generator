@@ -13,12 +13,12 @@ const ResumeGenerator = () => {
 
     school: 'Supa Arubaito School',
     program: 'Super part - time worker',
-    startDate: 'Last week',
-    endDate: 'Yesterday',
+    startDate: '2024-12-25',
+    endDate: '2024-12-26',
 
     company: 'Rou ramen',
     position: 'Sous chef',
-    workStartDate: 'Yesterday',
+    workStartDate: '2024-12-27',
     workEndDate: '',
     responsibilities: 'Making ramen and taking orders from customers!',
   });
@@ -38,6 +38,17 @@ const ResumeGenerator = () => {
     email.textContent = resumeData.email;
 
     // Work experience section
+    const position = document.querySelector('span.position');
+    const company = document.querySelector('span.company');
+    const workDate = document.querySelector('span.work-date');
+    const responsibilities = document.querySelector('span.responsibilities');
+    position.textContent = resumeData.position;
+    company.textContent = resumeData.company;
+    workDate.textContent = 
+      resumeData.workEndDate === ''
+        ? `${resumeData.workStartDate} - Present`
+        : `${resumeData.workStartDate} - ${resumeData.workEndDate}`;
+    responsibilities.textContent = resumeData.responsibilities;
 
     // Education section
     const program = document.querySelector('span.program');
@@ -88,7 +99,7 @@ const ResumeGenerator = () => {
             <span className="company">Rou Ramen</span>
           </h4>
           <h5>
-            <span className="date">Yesterday - present</span>
+            <span className="work-date">2024-12-27 - Present</span>
           </h5>
           <p>
             <span className="responsibilities">Making ramen and taking orders from customers!</span>
@@ -104,7 +115,7 @@ const ResumeGenerator = () => {
             <span className="school">Supa Arubaito School</span>
           </h4>
           <h5>
-            <span className="date">Last week - Yesterday</span>
+            <span className="date">2024-12-25 - 2024-12-26</span>
           </h5>
         </div>
       </section>
