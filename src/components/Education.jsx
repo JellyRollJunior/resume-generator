@@ -1,6 +1,6 @@
 export { Education };
 
-const Education = ({ data, onSubmit, onUpdate }) => {
+const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
   return (
     <>
       {data.map((entry, index) => {
@@ -25,6 +25,7 @@ const Education = ({ data, onSubmit, onUpdate }) => {
                 <input type="date" name="endDate" />
               </label>
               <button type="submit">Update</button>
+              <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
             </form>
           </fieldset>
         );

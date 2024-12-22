@@ -69,6 +69,10 @@ const ResumeGenerator = () => {
     });
     return data;
   }
+
+  const filterEducation = (id) => {
+    return education.filter((entry) => entry.id !== id);
+  }
   
   const addEducation = (event) => {
     event.preventDefault();
@@ -82,8 +86,14 @@ const ResumeGenerator = () => {
     event.preventDefault();
     const updatedEducation = compileEducation(event);
     updatedEducation['id'] = id;
-    setEducation([updatedEducation, ...education.filter((entry) => entry.id !== id)]);
+    setEducation([updatedEducation, ...filterEducation(id)]);
     console.log(updatedEducation);
+  }
+
+  const deleteEducation = (event, id) => {
+    event.preventDefault();
+    setEducation(filterEducation(id));
+    console.log(education);
   }
 
   return (
@@ -103,7 +113,7 @@ const ResumeGenerator = () => {
             Submit
           </button>
         </form>
-        <Education data={education} onSubmit={addEducation} onSave={updateEducation} />
+        <Education data={education} onSubmit={addEducation} onUpdate={updateEducation} onDelete={deleteEducation} />
       </section>
       <section className="resume">
         <div className="general-info">
