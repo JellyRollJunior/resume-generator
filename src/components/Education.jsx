@@ -10,19 +10,19 @@ const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
             <form onSubmit={(event) => onUpdate(event, entry.id)}>
               <label>
                 School:
-                <input type="text" name="school" value={entry.school} />
+                <input type="text" name="school" defaultValue={entry.school} />
               </label>
               <label>
                 Title of Study:
-                <input type="text" name="program" />
+                <input type="text" name="program" defaultValue={entry.program} />
               </label>
               <label>
                 Start Date:
-                <input type="date" name="startDate" />
+                <input type="date" name="startDate" defaultValue={entry.startDate} />
               </label>
               <label>
                 End Date:
-                <input type="date" name="endDate" />
+                <input type="date" name="endDate" defaultValue={entry.endDate} />
               </label>
               <button type="submit">Update</button>
               <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
