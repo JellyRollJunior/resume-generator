@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { GeneralInformation } from './GeneralInformationForm';
-import { Education } from './EducationForm';
 import { WorkExperience } from './WorkExperienceForm';
-import { Education2 } from './education';
+import { Education } from './education';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
@@ -82,7 +81,6 @@ const ResumeGenerator = () => {
             resumeData={resumeData}
             setResumeData={setResumeData}
           />
-          <Education resumeData={resumeData} setResumeData={setResumeData} />
           <WorkExperience
             resumeData={resumeData}
             setResumeData={setResumeData}
@@ -92,7 +90,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-        <Education2 onSubmit={addEducation} />
+        <Education onSubmit={addEducation} />
       </section>
       <section className="resume">
         <div className="general-info">

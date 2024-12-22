@@ -1,6 +1,6 @@
-export { Education2 };
+export { Education };
 
-const Education2 = ({ onSubmit }) => {
+const Education = ({ onSubmit }) => {
   return (
     <fieldset>
       <legend>New Education</legend>
