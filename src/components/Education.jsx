@@ -24,8 +24,10 @@ const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
                 End Date:
                 <input type="date" name="endDate" defaultValue={entry.endDate} />
               </label>
-              <button type="submit">Update</button>
-              <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
+              <div className="button-holder">
+                  <button type="submit">Update</button>
+                  <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
+              </div>
             </form>
           </fieldset>
         );

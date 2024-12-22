@@ -49,14 +49,6 @@ const ResumeGenerator = () => {
         ? `${resumeData.workStartDate} - Present`
         : `${resumeData.workStartDate} - ${resumeData.workEndDate}`;
     responsibilities.textContent = resumeData.responsibilities;
-
-    // Education section
-    const program = document.querySelector('span.program');
-    const school = document.querySelector('span.school');
-    const date = document.querySelector('span.date');
-    program.textContent = resumeData.program;
-    school.textContent = resumeData.school;
-    date.textContent = `${resumeData.startDate} - ${resumeData.endDate}`;
   };
 
   const [education, setEducation] = useState([]);
@@ -149,19 +141,6 @@ const ResumeGenerator = () => {
               Making ramen and taking orders from customers!
             </span>
           </p>
-        </div>
-        <div className="education">
-          <h2>Education</h2>
-          <hr />
-          <h3>
-            <span className="program">Super part - time worker</span>
-          </h3>
-          <h4>
-            <span className="school">Supa Arubaito School</span>
-          </h4>
-          <h5>
-            <span className="date">2024-12-25 - 2024-12-26</span>
-          </h5>
         </div>
         {education.map((data) => {
           return (
