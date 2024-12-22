@@ -79,6 +79,8 @@ const ResumeGenerator = () => {
     const educationData = compileEducation(event);
     educationData['id'] = crypto.randomUUID();
     setEducation([...education, educationData]);
+    // clear form inputs
+    event.target.reset();
     console.log(educationData);
   };
 
