@@ -45,7 +45,7 @@ const ResumeGenerator = () => {
     const responsibilities = document.querySelector('span.responsibilities');
     position.textContent = resumeData.position;
     company.textContent = resumeData.company;
-    workDate.textContent = 
+    workDate.textContent =
       resumeData.workEndDate === ''
         ? `${resumeData.workStartDate} - Present`
         : `${resumeData.workStartDate} - ${resumeData.workEndDate}`;
@@ -64,14 +64,14 @@ const ResumeGenerator = () => {
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
   const addEducation = (event) => {
     event.preventDefault();
-    let educationData = {}
+    let educationData = {};
     EDUCATION_FIELDS.forEach((field) => {
-      educationData[field] = event.target[field].value
-    })
+      educationData[field] = event.target[field].value;
+    });
     educationData['id'] = crypto.randomUUID();
     setEducation([...education, educationData]);
     console.log(educationData);
-  }
+  };
 
   return (
     <div className="resume-generator">
@@ -92,14 +92,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-
         <Education2 onSubmit={addEducation} />
-      
-      
-      
-      
-      
-      
       </section>
       <section className="resume">
         <div className="general-info">
@@ -125,7 +118,9 @@ const ResumeGenerator = () => {
             <span className="work-date">2024-12-27 - Present</span>
           </h5>
           <p>
-            <span className="responsibilities">Making ramen and taking orders from customers!</span>
+            <span className="responsibilities">
+              Making ramen and taking orders from customers!
+            </span>
           </p>
         </div>
         <div className="education">
@@ -141,6 +136,19 @@ const ResumeGenerator = () => {
             <span className="date">2024-12-25 - 2024-12-26</span>
           </h5>
         </div>
+        {education.map((data) => {
+          return (
+            <div key={data.id} className="education">
+              <h2>Education</h2>
+              <hr />
+              <h3>{data.program}</h3>
+              <h4>{data.school}</h4>
+              <h5>
+                ${data.startDate} - ${data.endDate}
+              </h5>
+            </div>
+          );
+        })}
       </section>
     </div>
   );
