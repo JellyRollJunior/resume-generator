@@ -14,19 +14,36 @@ const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
               </label>
               <label>
                 Title of Study:
-                <input type="text" name="program" defaultValue={entry.program} />
+                <input
+                  type="text"
+                  name="program"
+                  defaultValue={entry.program}
+                />
               </label>
               <label>
                 Start Date:
-                <input type="date" name="startDate" defaultValue={entry.startDate} />
+                <input
+                  type="date"
+                  name="startDate"
+                  defaultValue={entry.startDate}
+                />
               </label>
               <label>
                 End Date:
-                <input type="date" name="endDate" defaultValue={entry.endDate} />
+                <input
+                  type="date"
+                  name="endDate"
+                  defaultValue={entry.endDate}
+                />
               </label>
               <div className="button-holder">
-                  <button type="submit">Update</button>
-                  <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
+                <button type="submit">Update</button>
+                <button
+                  type="button"
+                  onClick={(event) => onDelete(event, entry.id)}
+                >
+                  Delete
+                </button>
               </div>
             </form>
           </fieldset>
@@ -51,7 +68,9 @@ const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
             End Date:
             <input type="date" name="endDate" />
           </label>
-          <button type="submit">Submit</button>
+          <div className="button-holder">
+            <button type="submit">Submit</button>
+          </div>
         </form>
       </fieldset>
     </>
