@@ -79,10 +79,14 @@ const ResumeGenerator = () => {
     const educationData = compileEducation(event);
     educationData['id'] = crypto.randomUUID();
     setEducation([...education, educationData]);
-    // clear form inputs
-    event.target.reset();
     console.log(educationData);
   };
+
+  const submitEducation = (event) => {
+    addEducation(event);
+    // clear form inputs
+    event.target.reset();
+  }
 
   const updateEducation = (event, id) => {
     event.preventDefault();
@@ -115,7 +119,7 @@ const ResumeGenerator = () => {
             Submit
           </button>
         </form>
-        <Education data={education} onSubmit={addEducation} onUpdate={updateEducation} onDelete={deleteEducation} />
+        <Education data={education} onSubmit={submitEducation} onUpdate={updateEducation} onDelete={deleteEducation} />
       </section>
       <section className="resume">
         <div className="general-info">
