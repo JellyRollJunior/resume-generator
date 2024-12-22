@@ -61,16 +61,30 @@ const ResumeGenerator = () => {
 
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
+  
+  const compileEducation = (event) => {
+    let data = {};
+    EDUCATION_FIELDS.forEach((field) => {
+      data[field] = event.target[field].value;
+    });
+    return data;
+  }
+  
   const addEducation = (event) => {
     event.preventDefault();
-    let educationData = {};
-    EDUCATION_FIELDS.forEach((field) => {
-      educationData[field] = event.target[field].value;
-    });
+    const educationData = compileEducation(event);
     educationData['id'] = crypto.randomUUID();
     setEducation([...education, educationData]);
     console.log(educationData);
   };
+
+  const updateEducation = (event, id) => {
+    event.preventDefault();
+    const updatedEducation = compileEducation(event);
+    updatedEducation['id'] = id;
+    setEducation([updatedEducation, ...education.filter((entry) => entry.id !== id)]);
+    console.log(updatedEducation);
+  }
 
   return (
     <div className="resume-generator">
@@ -89,8 +103,7 @@ const ResumeGenerator = () => {
             Submit
           </button>
         </form>
-
-        <Education onSubmit={addEducation} />
+        <Education data={education} onSubmit={addEducation} onSave={updateEducation} />
       </section>
       <section className="resume">
         <div className="general-info">

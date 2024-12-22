@@ -1,28 +1,56 @@
 export { Education };
 
-const Education = ({ onSubmit }) => {
+const Education = ({ data, onSubmit, onUpdate }) => {
   return (
-    <fieldset>
-      <legend>New Education</legend>
-      <form onSubmit={onSubmit}>
-        <label>
-          School:
-          <input type="text" name="school" />
-        </label>
-        <label>
-          Title of Study:
-          <input type="text" name="program" />
-        </label>
-        <label>
-          Start Date:
-          <input type="date" name="startDate" />
-        </label>
-        <label>
-          End Date:
-          <input type="date" name="endDate" />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    </fieldset>
+    <>
+      {data.map((entry, index) => {
+        return (
+          <fieldset key={entry.id}>
+            <legend>Education - {index + 1}</legend>
+            <form onSubmit={(event) => onUpdate(event, entry.id)}>
+              <label>
+                School:
+                <input type="text" name="school" value={entry.school} />
+              </label>
+              <label>
+                Title of Study:
+                <input type="text" name="program" />
+              </label>
+              <label>
+                Start Date:
+                <input type="date" name="startDate" />
+              </label>
+              <label>
+                End Date:
+                <input type="date" name="endDate" />
+              </label>
+              <button type="submit">Update</button>
+            </form>
+          </fieldset>
+        );
+      })}
+      <fieldset>
+        <legend>Add New Education</legend>
+        <form onSubmit={onSubmit}>
+          <label>
+            School:
+            <input type="text" name="school" />
+          </label>
+          <label>
+            Title of Study:
+            <input type="text" name="program" />
+          </label>
+          <label>
+            Start Date:
+            <input type="date" name="startDate" />
+          </label>
+          <label>
+            End Date:
+            <input type="date" name="endDate" />
+          </label>
+          <button type="submit">Submit</button>
+        </form>
+      </fieldset>
+    </>
   );
 };
