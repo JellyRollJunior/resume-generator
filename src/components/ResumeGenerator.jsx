@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { GeneralInformation } from './GeneralInformationForm';
 import { Education } from './EducationForm';
 import { WorkExperience } from './WorkExperienceForm';
+import { Education2 } from './education';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
@@ -59,6 +60,19 @@ const ResumeGenerator = () => {
     date.textContent = `${resumeData.startDate} - ${resumeData.endDate}`;
   };
 
+  const [education, setEducation] = useState([]);
+  const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
+  const addEducation = (event) => {
+    event.preventDefault();
+    let educationData = {}
+    EDUCATION_FIELDS.forEach((field) => {
+      educationData[field] = event.target[field].value
+    })
+    educationData['id'] = crypto.randomUUID();
+    setEducation([...education, educationData]);
+    console.log(educationData);
+  }
+
   return (
     <div className="resume-generator">
       <section>
@@ -77,6 +91,15 @@ const ResumeGenerator = () => {
             Submit
           </button>
         </form>
+
+
+        <Education2 onSubmit={addEducation} />
+      
+      
+      
+      
+      
+      
       </section>
       <section className="resume">
         <div className="general-info">
