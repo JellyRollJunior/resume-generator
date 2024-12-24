@@ -38,9 +38,9 @@ const ResumeGenerator = () => {
     email.textContent = resumeData.email;
   };
 
-  const compileWorkExperience = (event) => {
+  const compileFormData = (event, fields) => {
     const data = {};
-    WORK_EXPERIENCE_FIELDS.forEach((field) => {
+    fields.forEach((field) => {
       data[field] = event.target[field].value;
     })
     return data;
@@ -50,7 +50,8 @@ const ResumeGenerator = () => {
   const WORK_EXPERIENCE_FIELDS = ['company', 'position', 'startDate', 'endDate', 'responsibilities'];
   const addWorkExperience = (event) => {
     event.preventDefault();
-    const workExperienceEntry = compileWorkExperience(event);
+    const workExperienceEntry = compileFormData(event, WORK_EXPERIENCE_FIELDS);
+    workExperienceEntry['id'] = crypto.randomUUID();
     setWorkExperience([...workExperience, workExperienceEntry]);
     console.log(workExperienceEntry);
   }
@@ -58,21 +59,13 @@ const ResumeGenerator = () => {
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
 
-  const compileEducation = (event) => {
-    let data = {};
-    EDUCATION_FIELDS.forEach((field) => {
-      data[field] = event.target[field].value;
-    });
-    return data;
-  };
-
   const filterEducation = (id) => {
     return education.filter((entry) => entry.id !== id);
   };
 
   const addEducation = (event) => {
     event.preventDefault();
-    const educationEntry = compileEducation(event);
+    const educationEntry = compileFormData(event, EDUCATION_FIELDS);
     educationEntry['id'] = crypto.randomUUID();
     setEducation([...education, educationEntry]);
     console.log(educationEntry);
@@ -86,7 +79,7 @@ const ResumeGenerator = () => {
 
   const updateEducation = (event, id) => {
     event.preventDefault();
-    const updatedEducation = compileEducation(event);
+    const updatedEducation = compileFormData(event, EDUCATION_FIELDS);
     updatedEducation['id'] = id;
     setEducation([updatedEducation, ...filterEducation(id)]);
     console.log(updatedEducation);
