@@ -102,6 +102,32 @@ const ResumeGenerator = () => {
     console.log(education);
   };
 
+  const loadPresetResumeData = () => {
+    setResumeData({
+      firstname: 'Shisa',
+      lastname: '',
+      phone: '888-888-8888',
+      email: 'supa_arubaito@chiikawa.co',
+    });
+    setWorkExperience([
+      {
+        id: 'POGGERS',
+        company: 'Rou ramen',
+        startDate: '2024-12-27',
+        endDate: '',
+        responsibilities: 'Making ramen and taking orders from customers',
+      },
+    ]);
+    setEducation([
+      {
+        id: 'zippy-zoppy',
+        school: 'Supa Arubaito School',
+        startDate: '2024-23-25',
+        endDate: '2024-12-26',
+      },
+    ]);
+  };
+
   return (
     <div className="resume-generator">
       <section>
@@ -122,6 +148,9 @@ const ResumeGenerator = () => {
           onUpdate={updateEducation}
           onDelete={deleteEducation}
         />
+        <div className="button-holder">
+          <button onClick={loadPresetResumeData}>Load Preset Resume</button>
+        </div>
       </section>
       <section className="resume">
         <div className="general-info">

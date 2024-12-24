@@ -103,7 +103,7 @@ div.general-info * {
   font-size: 1rem;
 }
 
-.general-info .name {
+div.general-info h2 {
   font-size: 2rem;
 }
 
