@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { GeneralInformation } from './GeneralInformationForm';
-import { WorkExperience } from './WorkExperienceForm';
 import { Education } from './education';
+import { WorkExperience } from './WorkExperience';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
@@ -36,36 +36,23 @@ const ResumeGenerator = () => {
     name.textContent = `${resumeData.firstname} ${resumeData.lastname}`;
     phone.textContent = resumeData.phone;
     email.textContent = resumeData.email;
-
-    // Work experience section
-    const position = document.querySelector('span.position');
-    const company = document.querySelector('span.company');
-    const workDate = document.querySelector('span.work-date');
-    const responsibilities = document.querySelector('span.responsibilities');
-    position.textContent = resumeData.position;
-    company.textContent = resumeData.company;
-    workDate.textContent =
-      resumeData.workEndDate === ''
-        ? `${resumeData.workStartDate} - Present`
-        : `${resumeData.workStartDate} - ${resumeData.workEndDate}`;
-    responsibilities.textContent = resumeData.responsibilities;
   };
 
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
-  
+
   const compileEducation = (event) => {
     let data = {};
     EDUCATION_FIELDS.forEach((field) => {
       data[field] = event.target[field].value;
     });
     return data;
-  }
+  };
 
   const filterEducation = (id) => {
     return education.filter((entry) => entry.id !== id);
-  }
-  
+  };
+
   const addEducation = (event) => {
     event.preventDefault();
     const educationData = compileEducation(event);
@@ -78,7 +65,7 @@ const ResumeGenerator = () => {
     addEducation(event);
     // clear form inputs
     event.target.reset();
-  }
+  };
 
   const updateEducation = (event, id) => {
     event.preventDefault();
@@ -86,13 +73,13 @@ const ResumeGenerator = () => {
     updatedEducation['id'] = id;
     setEducation([updatedEducation, ...filterEducation(id)]);
     console.log(updatedEducation);
-  }
+  };
 
   const deleteEducation = (event, id) => {
     event.preventDefault();
     setEducation(filterEducation(id));
     console.log(education);
-  }
+  };
 
   return (
     <div className="resume-generator">
@@ -103,15 +90,18 @@ const ResumeGenerator = () => {
             resumeData={resumeData}
             setResumeData={setResumeData}
           />
-          <WorkExperience
-            resumeData={resumeData}
-            setResumeData={setResumeData}
-          />
           <button type="submit" onClick={handleSubmit}>
             Submit
           </button>
         </form>
-        <Education data={education} onSubmit={submitEducation} onUpdate={updateEducation} onDelete={deleteEducation} />
+
+        <WorkExperience />
+        <Education
+          data={education}
+          onSubmit={submitEducation}
+          onUpdate={updateEducation}
+          onDelete={deleteEducation}
+        />
       </section>
       <section className="resume">
         <div className="general-info">
