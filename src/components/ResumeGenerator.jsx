@@ -64,6 +64,11 @@ const ResumeGenerator = () => {
     console.log(workExperienceEntry);
   };
 
+  const submitWorkExperience = (event) => {
+    addWorkExperience(event);
+    event.target.reset();
+  }
+
   /* --- Education -------------------------------------------------------------------------------- */
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
@@ -114,7 +119,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-        <WorkExperience data={workExperience} onSubmit={addWorkExperience} />
+        <WorkExperience data={workExperience} onSubmit={submitWorkExperience} />
         <Education
           data={education}
           onSubmit={submitEducation}
