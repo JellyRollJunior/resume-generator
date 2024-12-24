@@ -39,7 +39,8 @@ h6 {
 }
 
 /* Resume Generator */
-.resume-generator > section {
+.resume-generator > section,
+.resume {
   margin: 12px;
   padding: 32px 24px;
   border: 2px solid black;
@@ -75,9 +76,11 @@ textarea[name='responsibilities'] {
 }
 
 /* Generated Resume */
-section.resume {
+.resume {
   position: relative;
   min-height: 500px;
+
+  border: 2px solid black;
 }
 
 .resume:before {

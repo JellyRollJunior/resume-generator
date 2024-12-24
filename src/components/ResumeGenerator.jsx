@@ -159,44 +159,46 @@ const ResumeGenerator = () => {
           <button onClick={resetResumeData}>Reset Resume</button>
         </div>
       </section>
-      <section className="resume">
-        <div className="general-info">
-          <h2>
-            {resumeData.firstname} {resumeData.lastname}
-          </h2>
-          <h3>
-            {resumeData.phone ? `Phone: ${resumeData.phone}` : ''}
-            <br />
-            {resumeData.email ? `Email: ${resumeData.email}` : ''}
-          </h3>
+      <section>
+        <div className="resume">
+          <div className="general-info">
+            <h2>
+              {resumeData.firstname} {resumeData.lastname}
+            </h2>
+            <h3>
+              {resumeData.phone ? `Phone: ${resumeData.phone}` : ''}
+              <br />
+              {resumeData.email ? `Email: ${resumeData.email}` : ''}
+            </h3>
+          </div>
+          {workExperience.map((data) => {
+            return (
+              <div key={data.id} className="work-experience">
+                <h2>Work Experience</h2>
+                <hr />
+                <h3>{data.position}</h3>
+                <h4>{data.company}</h4>
+                <h5>
+                  {data.startDate} - {data.endDate}
+                </h5>
+                <p>{data.responsibilities}</p>
+              </div>
+            );
+          })}
+          {education.map((data) => {
+            return (
+              <div key={data.id} className="education">
+                <h2>Education</h2>
+                <hr />
+                <h3>{data.program}</h3>
+                <h4>{data.school}</h4>
+                <h5>
+                  {data.startDate} - {data.endDate}
+                </h5>
+              </div>
+            );
+          })}
         </div>
-        {workExperience.map((data) => {
-          return (
-            <div key={data.id} className="work-experience">
-              <h2>Work Experience</h2>
-              <hr />
-              <h3>{data.position}</h3>
-              <h4>{data.company}</h4>
-              <h5>
-                {data.startDate} - {data.endDate}
-              </h5>
-              <p>{data.responsibilities}</p>
-            </div>
-          );
-        })}
-        {education.map((data) => {
-          return (
-            <div key={data.id} className="education">
-              <h2>Education</h2>
-              <hr />
-              <h3>{data.program}</h3>
-              <h4>{data.school}</h4>
-              <h5>
-                {data.startDate} - {data.endDate}
-              </h5>
-            </div>
-          );
-        })}
       </section>
     </div>
   );
