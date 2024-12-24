@@ -81,6 +81,11 @@ const ResumeGenerator = () => {
     console.log(editedEntry);
   }
 
+  const deleteWorkExperience = (event, id) => {
+    event.preventDefault();
+    setWorkExperience(filterById(workExperience, id));
+  }
+
   /* --- Education -------------------------------------------------------------------------------- */
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
@@ -127,7 +132,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-        <WorkExperience data={workExperience} onSubmit={submitWorkExperience} onUpdate={updateWorkExperience} />
+        <WorkExperience data={workExperience} onSubmit={submitWorkExperience} onUpdate={updateWorkExperience} onDelete={deleteWorkExperience} />
         <Education
           data={education}
           onSubmit={submitEducation}

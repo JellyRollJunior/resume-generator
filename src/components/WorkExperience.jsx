@@ -1,6 +1,6 @@
 export { WorkExperience };
 
-const WorkExperience = ({ data, onSubmit, onUpdate }) => {
+const WorkExperience = ({ data, onSubmit, onUpdate, onDelete }) => {
   return (
     <>
       {data.map((entry) => {
@@ -30,7 +30,7 @@ const WorkExperience = ({ data, onSubmit, onUpdate }) => {
               </label>
               <div className="button-holder">
                 <button type="submit">Update</button>
-                <button type="button">Delete</button>
+                <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
               </div>
             </form>
           </fieldset>
