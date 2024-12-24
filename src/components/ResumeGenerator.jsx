@@ -105,6 +105,7 @@ const ResumeGenerator = () => {
   return (
     <div className="resume-generator">
       <section>
+        <h1>Resume Generator</h1>
         <GeneralInformation
           data={resumeData}
           onSubmit={submitGeneralInformation}
