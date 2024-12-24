@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useDebugValue, useState } from 'react';
 import { GeneralInformation } from './GeneralInformationForm';
 import { Education } from './education';
 import { WorkExperience } from './WorkExperience';
@@ -38,6 +38,23 @@ const ResumeGenerator = () => {
     email.textContent = resumeData.email;
   };
 
+  const compileWorkExperience = (event) => {
+    const data = {};
+    WORK_EXPERIENCE_FIELDS.forEach((field) => {
+      data[field] = event.target[field].value;
+    })
+    return data;
+  }
+
+  const [workExperience, setWorkExperience] = useState([]);
+  const WORK_EXPERIENCE_FIELDS = ['company', 'position', 'startDate', 'endDate', 'responsibilities'];
+  const addWorkExperience = (event) => {
+    event.preventDefault();
+    const workExperienceEntry = compileWorkExperience(event);
+    setWorkExperience([...workExperience, workExperienceEntry]);
+    console.log(workExperienceEntry);
+  }
+
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
 
@@ -55,10 +72,10 @@ const ResumeGenerator = () => {
 
   const addEducation = (event) => {
     event.preventDefault();
-    const educationData = compileEducation(event);
-    educationData['id'] = crypto.randomUUID();
-    setEducation([...education, educationData]);
-    console.log(educationData);
+    const educationEntry = compileEducation(event);
+    educationEntry['id'] = crypto.randomUUID();
+    setEducation([...education, educationEntry]);
+    console.log(educationEntry);
   };
 
   const submitEducation = (event) => {
@@ -95,7 +112,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-        <WorkExperience />
+        <WorkExperience onSubmit={addWorkExperience} />
         <Education
           data={education}
           onSubmit={submitEducation}

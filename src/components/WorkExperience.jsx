@@ -1,10 +1,10 @@
-export { WorkExperience2 };
+export { WorkExperience };
 
-const WorkExperience2 = () => {
+const WorkExperience = ({onSubmit}) => {
   return (
     <fieldset>
       <legend>Add New Work Experience</legend>
-      <form action="">
+      <form onSubmit={onSubmit}>
         <label>
           Company Name:
           <input type="text" name="company" />
