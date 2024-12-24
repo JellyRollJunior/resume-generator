@@ -132,7 +132,7 @@ const ResumeGenerator = () => {
     setResumeData({});
     setWorkExperience([]);
     setEducation([]);
-  }
+  };
 
   return (
     <div className="resume-generator">
@@ -179,7 +179,9 @@ const ResumeGenerator = () => {
                 <h3>{data.position}</h3>
                 <h4>{data.company}</h4>
                 <h5>
-                  {data.startDate} - {data.endDate}
+                  {data.endDate
+                    ? `${data.startDate} - ${data.endDate}`
+                    : `${data.startDate} - Present`}
                 </h5>
                 <p>{data.responsibilities}</p>
               </div>
@@ -193,7 +195,9 @@ const ResumeGenerator = () => {
                 <h3>{data.program}</h3>
                 <h4>{data.school}</h4>
                 <h5>
-                  {data.startDate} - {data.endDate}
+                  {data.endDate
+                    ? `${data.startDate} - ${data.endDate}`
+                    : `${data.startDate} - Present`}
                 </h5>
               </div>
             );
