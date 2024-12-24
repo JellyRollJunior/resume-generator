@@ -42,20 +42,29 @@ const ResumeGenerator = () => {
     const data = {};
     fields.forEach((field) => {
       data[field] = event.target[field].value;
-    })
+    });
     return data;
-  }
+  };
 
+  /* --- Work Experience -------------------------------------------------------------------------- */
   const [workExperience, setWorkExperience] = useState([]);
-  const WORK_EXPERIENCE_FIELDS = ['company', 'position', 'startDate', 'endDate', 'responsibilities'];
+  const WORK_EXPERIENCE_FIELDS = [
+    'company',
+    'position',
+    'startDate',
+    'endDate',
+    'responsibilities',
+  ];
+
   const addWorkExperience = (event) => {
     event.preventDefault();
     const workExperienceEntry = compileFormData(event, WORK_EXPERIENCE_FIELDS);
     workExperienceEntry['id'] = crypto.randomUUID();
     setWorkExperience([...workExperience, workExperienceEntry]);
     console.log(workExperienceEntry);
-  }
+  };
 
+  /* --- Education -------------------------------------------------------------------------------- */
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
 
@@ -105,7 +114,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-        <WorkExperience onSubmit={addWorkExperience} />
+        <WorkExperience data={workExperience} onSubmit={addWorkExperience} />
         <Education
           data={education}
           onSubmit={submitEducation}
