@@ -128,6 +128,12 @@ const ResumeGenerator = () => {
     ]);
   };
 
+  const resetResumeData = () => {
+    setResumeData({});
+    setWorkExperience([]);
+    setEducation([]);
+  }
+
   return (
     <div className="resume-generator">
       <section>
@@ -150,6 +156,7 @@ const ResumeGenerator = () => {
         />
         <div className="button-holder">
           <button onClick={loadPresetResumeData}>Load Preset Resume</button>
+          <button onClick={resetResumeData}>Reset Resume</button>
         </div>
       </section>
       <section className="resume">
