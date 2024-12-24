@@ -1,13 +1,13 @@
 export { WorkExperience };
 
-const WorkExperience = ({ data, onSubmit }) => {
+const WorkExperience = ({ data, onSubmit, onUpdate }) => {
   return (
     <>
       {data.map((entry) => {
         return (
           <fieldset key={entry.id}>
             <legend>Add New Work Experience</legend>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={(event) => onUpdate(event, entry.id)}>
               <label>
                 Company Name:
                 <input type="text" name="company" defaultValue={entry.company} />
@@ -29,7 +29,8 @@ const WorkExperience = ({ data, onSubmit }) => {
                 <textarea name="responsibilities" defaultValue={entry.responsibilities} ></textarea>
               </label>
               <div className="button-holder">
-                <button type="submit">Submit</button>
+                <button type="submit">Update</button>
+                <button type="button">Delete</button>
               </div>
             </form>
           </fieldset>

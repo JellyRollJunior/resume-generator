@@ -56,6 +56,10 @@ const ResumeGenerator = () => {
     'responsibilities',
   ];
 
+  const filterWorkExperience = (id) => {
+    return workExperience.filter((entry) => entry.id !== id);
+  }
+
   const addWorkExperience = (event) => {
     event.preventDefault();
     const workExperienceEntry = compileFormData(event, WORK_EXPERIENCE_FIELDS);
@@ -67,6 +71,14 @@ const ResumeGenerator = () => {
   const submitWorkExperience = (event) => {
     addWorkExperience(event);
     event.target.reset();
+  }
+
+  const updateWorkExperience = (event, id) => {
+    event.preventDefault();
+    const editedEntry = compileFormData(event, WORK_EXPERIENCE_FIELDS);
+    editedEntry['id'] = id;
+    setWorkExperience([editedEntry, ...filterWorkExperience(id)]);
+    console.log(editedEntry);
   }
 
   /* --- Education -------------------------------------------------------------------------------- */
@@ -119,7 +131,7 @@ const ResumeGenerator = () => {
           </button>
         </form>
 
-        <WorkExperience data={workExperience} onSubmit={submitWorkExperience} />
+        <WorkExperience data={workExperience} onSubmit={submitWorkExperience} onUpdate={updateWorkExperience} />
         <Education
           data={education}
           onSubmit={submitEducation}
