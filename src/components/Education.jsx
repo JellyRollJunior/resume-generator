@@ -3,10 +3,10 @@ export { Education };
 const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
   return (
     <>
-      {data.map((entry, index) => {
+      {data.map((entry) => {
         return (
           <fieldset key={entry.id}>
-            <legend>Education - {index + 1}</legend>
+            <legend>Education 1: {entry.school}</legend>
             <form onSubmit={(event) => onUpdate(event, entry.id)}>
               <label>
                 School:

@@ -150,7 +150,7 @@ const ResumeGenerator = () => {
               <h3>{data.program}</h3>
               <h4>{data.school}</h4>
               <h5>
-                ${data.startDate} - ${data.endDate}
+                {data.startDate} - {data.endDate}
               </h5>
             </div>
           );
