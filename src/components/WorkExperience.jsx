@@ -3,10 +3,10 @@ export { WorkExperience };
 const WorkExperience = ({ data, onSubmit, onUpdate, onDelete }) => {
   return (
     <>
-      {data.map((entry) => {
+      {data.map((entry, index) => {
         return (
           <fieldset key={entry.id}>
-            <legend>Add New Work Experience</legend>
+            <legend>Work Experience {index + 1}: {entry.company}</legend>
             <form onSubmit={(event) => onUpdate(event, entry.id)}>
               <label>
                 Company Name:
