@@ -46,6 +46,10 @@ const ResumeGenerator = () => {
     return data;
   };
 
+  const filterById = (data, id) => {
+    return data.filter((entry) => entry.id !== id);
+  }
+
   /* --- Work Experience -------------------------------------------------------------------------- */
   const [workExperience, setWorkExperience] = useState([]);
   const WORK_EXPERIENCE_FIELDS = [
@@ -55,10 +59,6 @@ const ResumeGenerator = () => {
     'endDate',
     'responsibilities',
   ];
-
-  const filterWorkExperience = (id) => {
-    return workExperience.filter((entry) => entry.id !== id);
-  }
 
   const addWorkExperience = (event) => {
     event.preventDefault();
@@ -77,17 +77,13 @@ const ResumeGenerator = () => {
     event.preventDefault();
     const editedEntry = compileFormData(event, WORK_EXPERIENCE_FIELDS);
     editedEntry['id'] = id;
-    setWorkExperience([editedEntry, ...filterWorkExperience(id)]);
+    setWorkExperience([editedEntry, ...filterById(workExperience, id)]);
     console.log(editedEntry);
   }
 
   /* --- Education -------------------------------------------------------------------------------- */
   const [education, setEducation] = useState([]);
   const EDUCATION_FIELDS = ['school', 'program', 'startDate', 'endDate'];
-
-  const filterEducation = (id) => {
-    return education.filter((entry) => entry.id !== id);
-  };
 
   const addEducation = (event) => {
     event.preventDefault();
@@ -107,13 +103,13 @@ const ResumeGenerator = () => {
     event.preventDefault();
     const updatedEducation = compileFormData(event, EDUCATION_FIELDS);
     updatedEducation['id'] = id;
-    setEducation([updatedEducation, ...filterEducation(id)]);
+    setEducation([updatedEducation, ...filterById(education, id)]);
     console.log(updatedEducation);
   };
 
   const deleteEducation = (event, id) => {
     event.preventDefault();
-    setEducation(filterEducation(id));
+    setEducation(filterById(education, id));
     console.log(education);
   };
 
