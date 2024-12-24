@@ -1,6 +1,6 @@
 <h1 align="center">Resume Generator</h1>
 <h3 align="center">Create your own resume using Resume Generator!</h3>
-<h3 align="center"><a href=''>Click to see live</a></h3>
+<h3 align="center"><a href='https://preeminent-beijinho-3a83d2.netlify.app/' target="_blank" rel="noopener noreferrer">Click to see live</a></h3>
 
 <img width="" alt="" src="./src/project-screenshots/desktop-view.png">
 
