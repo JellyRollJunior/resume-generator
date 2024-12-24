@@ -19,30 +19,14 @@ const ResumeGenerator = () => {
   };
 
   /* --- General Information ---------------------------------------------------------------------- */
-  const [resumeData, setResumeData] = useState({
-    firstname: 'Shisa',
-    lastname: '',
-    phone: '888-888-8888',
-    email: 'supa_arubaito@chiikawa.co',
-
-    school: 'Supa Arubaito School',
-    program: 'Super part - time worker',
-    startDate: '2024-12-25',
-    endDate: '2024-12-26',
-
-    company: 'Rou ramen',
-    position: 'Sous chef',
-    workStartDate: '2024-12-27',
-    workEndDate: '',
-    responsibilities: 'Making ramen and taking orders from customers!',
-  });
+  const [resumeData, setResumeData] = useState({});
   const GENERAL_INFORMATION_FIELDS = [
     'firstname',
     'lastname',
     'phone',
     'email',
   ];
-  
+
   const submitGeneralInformation = (event) => {
     event.preventDefault();
     const entry = compileFormData(event, GENERAL_INFORMATION_FIELDS);
@@ -141,12 +125,12 @@ const ResumeGenerator = () => {
       <section className="resume">
         <div className="general-info">
           <h2>
-            <span className="name">Shisa</span>
+            {resumeData.firstname} {resumeData.lastname}
           </h2>
           <h3>
-            Phone: <span className="phone">888-888-8888</span>
+            {resumeData.phone ? `Phone: ${resumeData.phone}` : ''}
             <br />
-            Email: <span className="email">supa_arubaito@chiikawa.co</span>
+            {resumeData.email ? `Email: ${resumeData.email}` : ''}
           </h3>
         </div>
         {workExperience.map((data) => {
