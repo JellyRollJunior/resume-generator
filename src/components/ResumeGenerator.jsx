@@ -1,4 +1,4 @@
-import { useDebugValue, useState } from 'react';
+import { useState } from 'react';
 import { GeneralInformation } from './GeneralInformationForm';
 import { Education } from './education';
 import { WorkExperience } from './WorkExperience';
@@ -48,7 +48,7 @@ const ResumeGenerator = () => {
 
   const filterById = (data, id) => {
     return data.filter((entry) => entry.id !== id);
-  }
+  };
 
   /* --- Work Experience -------------------------------------------------------------------------- */
   const [workExperience, setWorkExperience] = useState([]);
@@ -71,7 +71,7 @@ const ResumeGenerator = () => {
   const submitWorkExperience = (event) => {
     addWorkExperience(event);
     event.target.reset();
-  }
+  };
 
   const updateWorkExperience = (event, id) => {
     event.preventDefault();
@@ -79,12 +79,12 @@ const ResumeGenerator = () => {
     editedEntry['id'] = id;
     setWorkExperience([editedEntry, ...filterById(workExperience, id)]);
     console.log(editedEntry);
-  }
+  };
 
   const deleteWorkExperience = (event, id) => {
     event.preventDefault();
     setWorkExperience(filterById(workExperience, id));
-  }
+  };
 
   /* --- Education -------------------------------------------------------------------------------- */
   const [education, setEducation] = useState([]);
@@ -131,8 +131,12 @@ const ResumeGenerator = () => {
             Submit
           </button>
         </form>
-
-        <WorkExperience data={workExperience} onSubmit={submitWorkExperience} onUpdate={updateWorkExperience} onDelete={deleteWorkExperience} />
+        <WorkExperience
+          data={workExperience}
+          onSubmit={submitWorkExperience}
+          onUpdate={updateWorkExperience}
+          onDelete={deleteWorkExperience}
+        />
         <Education
           data={education}
           onSubmit={submitEducation}
@@ -151,24 +155,20 @@ const ResumeGenerator = () => {
             Email: <span className="email">supa_arubaito@chiikawa.co</span>
           </h3>
         </div>
-        <div className="work-experience">
-          <h2>Work Experience</h2>
-          <hr />
-          <h3>
-            <span className="position">Sous chef</span>
-          </h3>
-          <h4>
-            <span className="company">Rou Ramen</span>
-          </h4>
-          <h5>
-            <span className="work-date">2024-12-27 - Present</span>
-          </h5>
-          <p>
-            <span className="responsibilities">
-              Making ramen and taking orders from customers!
-            </span>
-          </p>
-        </div>
+        {workExperience.map((data) => {
+          return (
+            <div key={data.id} className="work-experience">
+              <h2>Work Experience</h2>
+              <hr />
+              <h3>{data.position}</h3>
+              <h4>{data.company}</h4>
+              <h5>
+                {data.startDate} - {data.endDate}
+              </h5>
+              <p>{data.responsibilities}</p>
+            </div>
+          );
+        })}
         {education.map((data) => {
           return (
             <div key={data.id} className="education">
