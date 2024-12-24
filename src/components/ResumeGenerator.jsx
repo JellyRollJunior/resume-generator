@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Education } from './education';
-import { WorkExperience } from './WorkExperience';
-import { GeneralInformation } from './GeneralInformation';
+import { Education } from './Education.jsx';
+import { WorkExperience } from './WorkExperience.jsx';
+import { GeneralInformation } from './GeneralInformation.jsx';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
