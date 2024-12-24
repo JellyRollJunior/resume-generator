@@ -70,6 +70,10 @@ fieldset label {
   margin-bottom: 3px;
 }
 
+textarea[name='responsibilities'] {
+    min-height: 150px;
+}
+
 /* Generated Resume */
 section.resume {
   position: relative;
@@ -117,6 +121,11 @@ h5 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 24px;
+  }
+
+  :has(textarea[name='responsibilities']),
+  .button-holder {
+    grid-column: span 2;
   }
 }
 
