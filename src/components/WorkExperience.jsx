@@ -6,31 +6,57 @@ const WorkExperience = ({ data, onSubmit, onUpdate, onDelete }) => {
       {data.map((entry, index) => {
         return (
           <fieldset key={entry.id}>
-            <legend>Work Experience {index + 1}: {entry.company}</legend>
+            <legend>
+              Work Experience {index + 1}: {entry.company}
+            </legend>
             <form onSubmit={(event) => onUpdate(event, entry.id)}>
               <label>
                 Company Name:
-                <input type="text" name="company" defaultValue={entry.company} />
+                <input
+                  type="text"
+                  name="company"
+                  defaultValue={entry.company}
+                />
               </label>
               <label>
                 Position Title:
-                <input type="text" name="position" defaultValue={entry.position} />
+                <input
+                  type="text"
+                  name="position"
+                  defaultValue={entry.position}
+                />
               </label>
               <label>
                 Start Date:
-                <input type="date" name="startDate" defaultValue={entry.startDate} />
+                <input
+                  type="date"
+                  name="startDate"
+                  defaultValue={entry.startDate}
+                />
               </label>
               <label>
                 End Date:
-                <input type="date" name="endDate" defaultValue={entry.endDate} />
+                <input
+                  type="date"
+                  name="endDate"
+                  defaultValue={entry.endDate}
+                />
               </label>
               <label>
                 Responsibilities:
-                <textarea name="responsibilities" defaultValue={entry.responsibilities} ></textarea>
+                <textarea
+                  name="responsibilities"
+                  defaultValue={entry.responsibilities}
+                ></textarea>
               </label>
               <div className="button-holder">
                 <button type="submit">Update</button>
-                <button type="button" onClick={(event) => onDelete(event, entry.id)}>Delete</button>
+                <button
+                  type="button"
+                  onClick={(event) => onDelete(event, entry.id)}
+                >
+                  Delete
+                </button>
               </div>
             </form>
           </fieldset>

@@ -1,10 +1,24 @@
 import { useState } from 'react';
-import { GeneralInformation } from './GeneralInformationForm';
 import { Education } from './education';
 import { WorkExperience } from './WorkExperience';
+import { GeneralInformation } from './GeneralInformation';
 export { ResumeGenerator };
 
 const ResumeGenerator = () => {
+  /* --- Helper functions -------------------------------------------------------------------------- */
+  const compileFormData = (event, fields) => {
+    const data = {};
+    fields.forEach((field) => {
+      data[field] = event.target[field].value;
+    });
+    return data;
+  };
+
+  const filterById = (data, id) => {
+    return data.filter((entry) => entry.id !== id);
+  };
+
+  /* --- General Information ---------------------------------------------------------------------- */
   const [resumeData, setResumeData] = useState({
     firstname: 'Shisa',
     lastname: '',
@@ -22,32 +36,18 @@ const ResumeGenerator = () => {
     workEndDate: '',
     responsibilities: 'Making ramen and taking orders from customers!',
   });
-
-  const handleSubmit = (event) => {
+  const GENERAL_INFORMATION_FIELDS = [
+    'firstname',
+    'lastname',
+    'phone',
+    'email',
+  ];
+  
+  const submitGeneralInformation = (event) => {
     event.preventDefault();
-    populateResume();
-  };
-
-  const populateResume = () => {
-    // General info section
-    const name = document.querySelector('span.name');
-    const phone = document.querySelector('span.phone');
-    const email = document.querySelector('span.email');
-    name.textContent = `${resumeData.firstname} ${resumeData.lastname}`;
-    phone.textContent = resumeData.phone;
-    email.textContent = resumeData.email;
-  };
-
-  const compileFormData = (event, fields) => {
-    const data = {};
-    fields.forEach((field) => {
-      data[field] = event.target[field].value;
-    });
-    return data;
-  };
-
-  const filterById = (data, id) => {
-    return data.filter((entry) => entry.id !== id);
+    const entry = compileFormData(event, GENERAL_INFORMATION_FIELDS);
+    setResumeData({ ...resumeData, ...entry });
+    console.log(resumeData);
   };
 
   /* --- Work Experience -------------------------------------------------------------------------- */
@@ -121,16 +121,10 @@ const ResumeGenerator = () => {
   return (
     <div className="resume-generator">
       <section>
-        <form action="">
-          <h1>Resume Generator</h1>
-          <GeneralInformation
-            resumeData={resumeData}
-            setResumeData={setResumeData}
-          />
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </form>
+        <GeneralInformation
+          data={resumeData}
+          onSubmit={submitGeneralInformation}
+        />
         <WorkExperience
           data={workExperience}
           onSubmit={submitWorkExperience}

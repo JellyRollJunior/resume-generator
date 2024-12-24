@@ -6,7 +6,9 @@ const Education = ({ data, onSubmit, onUpdate, onDelete }) => {
       {data.map((entry, index) => {
         return (
           <fieldset key={entry.id}>
-            <legend>Education {index + 1}: {entry.school}</legend>
+            <legend>
+              Education {index + 1}: {entry.school}
+            </legend>
             <form onSubmit={(event) => onUpdate(event, entry.id)}>
               <label>
                 School:
